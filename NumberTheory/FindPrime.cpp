@@ -11,3 +11,19 @@ bool is_prime(int n){
     }
     return false; //Prime
 }
+
+/*
+Optimized Sieve of Eratosthenes
+To find prime numbers in a given range.
+*/
+void erat(bool *prime){
+    for(int i = 2; i <= n; i++)
+        prime[i] = 1;
+    for(int i = 2; i*i <= n; i++){
+        if(prime[i]){
+            for(int j = i*i; j <= n; j+=i){
+                prime[j] = 0;
+            }
+        }
+    }
+}
